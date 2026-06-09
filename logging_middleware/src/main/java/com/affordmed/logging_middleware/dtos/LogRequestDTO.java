@@ -1,18 +1,20 @@
 package com.affordmed.logging_middleware.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class LogRequestDTO {
 
+    @NotBlank
     private String stack;
+
+    @NotBlank
     private String level;
+
+    @NotBlank
     private String packageName;
+
+    @NotBlank
     private String message;
 }
