@@ -2,6 +2,7 @@ package com.affordmed.logging_middleware.controllers;
 
 import com.affordmed.logging_middleware.dtos.LogRequestDTO;
 import com.affordmed.logging_middleware.services.LoggingService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +16,11 @@ public class LoggingController {
 
     @PostMapping
     public ResponseEntity<String> createLog(
-            @RequestBody LogRequestDTO request
+            @Valid @RequestBody LogRequestDTO request
     ) {
 
-        loggingService.log(request);
+        String response = loggingService.log(request);
 
-        return ResponseEntity.ok("Log received");
+        return ResponseEntity.ok(response);
     }
 }
